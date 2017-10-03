@@ -3,6 +3,9 @@
 Trackless Sea is meant to be a first simple example of a game built on
 the Demiurge HTML game engine.
 
+## Start the Server
+
+    $ thin start -R config.ru -p 3001
 
 ## Contributing
 

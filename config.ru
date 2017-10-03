@@ -1,5 +1,8 @@
 Bundler.require :default
 
+require "faye/websocket"
+require "rack/coffee"
+
 # Can also be Puma
 Faye::WebSocket.load_adapter('thin')
 
@@ -14,13 +17,16 @@ use Rack::CommonLogger, file
 use Rack::ShowExceptions
 
 # Serve .js files from .coffee files dynamically
-use Rack::Coffee, :urls => ""  # TODO: how will these be served when it's a gem?
-use Rack::Static, :urls => ["/tiles", "/sprites", "/scripts/vendor"]
+# TODO: figure out how to serve CoffeeScript stuff from the right dynamic root
+coffee_root = File.join(__dir__, "..", "demiurge-createjs")
+use Rack::Coffee, :root => coffee_root, :urls => "/scripts"
+
+use Rack::Static, :urls => ["/tiles", "/sprites", "/vendor_js"]
 
 def combined_handler
   Proc.new do |env|
     if Faye::WebSocket.websocket? env
-      PDM.websocket_handler env
+      Demiurge::Createjs.websocket_handler env
     else
       # Currently this always serves index.html for any non-websocket request
       [200, {'Content-Type' => 'text/html'}, [File.read("index.html")]]
