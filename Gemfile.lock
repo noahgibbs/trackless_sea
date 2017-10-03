@@ -1,0 +1,64 @@
+PATH
+  remote: ../demiurge-createjs
+  specs:
+    demiurge-createjs (0.1.0)
+      demiurge
+      faye-websocket
+      multi_json
+      rack-coffee
+      therubyracer
+      thin
+      tmx
+
+PATH
+  remote: ../demiurge
+  specs:
+    demiurge (0.1.0)
+      multi_json
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
+    daemons (1.2.4)
+    eventmachine (1.2.5)
+    execjs (2.7.0)
+    faye-websocket (0.10.7)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.5.1)
+    libv8 (3.16.14.19)
+    mini_portile2 (2.3.0)
+    multi_json (1.12.2)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
+    rack (2.0.3)
+    rack-coffee (1.0.3)
+      coffee-script
+      rack
+    ref (2.0.0)
+    therubyracer (0.12.3)
+      libv8 (~> 3.16.14.15)
+      ref
+    thin (1.7.2)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (>= 1, < 3)
+    tmx (0.1.5)
+      multi_json (~> 1.0)
+      nokogiri (~> 1.5)
+    websocket-driver (0.7.0)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  demiurge!
+  demiurge-createjs!
+
+BUNDLED WITH
+   1.14.6
