@@ -1,4 +1,6 @@
-# Required from config.ru
+# This file is required from config.ru
+
+require "demiurge/dsl"
 
 # TODO: Set the HTML canvas from these? Or vice-versa?
 CANVAS_WIDTH = 640
@@ -6,24 +8,20 @@ CANVAS_HEIGHT = 480
 
 class GoodShip
   def initialize
-    terrain = Demiurge::Createjs.sprites_from_tmx File.join(__dir__, "tmx", "terrain-test.tmx")
-    @terrain_spritesheet = terrain[:spritesheet]
-    @terrain_spritestack = terrain[:spritestack]
-    @terrain_spritestack["name"] = "terrain-test"
+    @engine = Demiurge.engine_from_dsl_files *Dir["world/*.rb"]
 
-    terrain = Demiurge::Createjs.sprites_from_manasource_tmx File.join(__dir__, "tmx", "evol-boat.tmx")
-    @boat_spritesheet = terrain[:spritesheet]
-    @boat_spritestack = terrain[:spritestack]
-    @boat_collision = terrain[:collision]
-    @boat_spritestack["name"] = "evol-boat"
+    terrain = @engine.item_by_name("start location")
 
-    @zone = Demiurge::Createjs::Zone.new spritestack: @boat_spritestack, spritesheet: @boat_spritesheet
+    boat_collision = terrain[:collision]
+    boat_spritestack["name"] = "evol-boat"  # Debug data? Why is this here?
+
+    @start_zone = Demiurge::Createjs::Zone.new spritestack: terrain[:spritestack], spritesheet: terrain[:spritesheet]
   end
 
   def on_open(options)
     socket = options[:transport]
     player = Demiurge::Createjs::Player.new transport: Demiurge::Createjs::Transport.new(socket), name: "player", width: CANVAS_WIDTH, height: CANVAS_HEIGHT
-    player.zone = @zone
+    player.zone = @start_zone
 
     player.display
     player.teleport_to_tile 3, 3
@@ -37,12 +35,6 @@ class GoodShip
         end
       end
     end
-    #EM.add_timer(3.0) do
-    #  player.send_pan_to_pixel_offset(500, 500, "duration" => 10.0)
-    #end
-    #EM.add_timer(13.0) do
-    #  player.send_animation "stand_right"
-    #end
   end
 end
 
