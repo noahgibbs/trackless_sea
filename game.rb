@@ -1,6 +1,7 @@
 # This file is required from config.ru
 
 require "demiurge/dsl"
+require "demiurge/tmx"
 
 # TODO: Set the HTML canvas from these? Or vice-versa?
 CANVAS_WIDTH = 640
@@ -12,10 +13,7 @@ class GoodShip
 
     terrain = @engine.item_by_name("start location")
 
-    boat_collision = terrain[:collision]
-    boat_spritestack["name"] = "evol-boat"  # Debug data? Why is this here?
-
-    @start_zone = Demiurge::Createjs::Zone.new spritestack: terrain[:spritestack], spritesheet: terrain[:spritesheet]
+    @start_zone = Demiurge::Createjs::Zone.new spritestack: terrain.tiles[:spritestack], spritesheet: terrain.tiles[:spritesheet]
   end
 
   def on_open(options)

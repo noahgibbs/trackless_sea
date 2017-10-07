@@ -1,6 +1,6 @@
 area "ship" do
   tmx_location "start location" do
-    manasource_tile_layout "evol-boat.tmx"
+    manasource_tile_layout "tmx/evol-boat.tmx"
     description "Outside the Ship"
     state.bats = 0
 

@@ -15,6 +15,7 @@ PATH
   specs:
     demiurge (0.1.0)
       multi_json
+      tmx
 
 GEM
   remote: https://rubygems.org/
