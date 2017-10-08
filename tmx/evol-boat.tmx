@@ -60,6 +60,8 @@
   </data>
  </layer>
  <objectgroup name="Object">
+  <object name="start" type="start" x="" y="" width="1" height="1">
+  </object>
   <object name="ToInterior" type="warp" x="4640" y="2304" width="26" height="60">
    <properties>
     <property name="dest_map" value="001-2-0"/>

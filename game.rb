@@ -11,9 +11,9 @@ class GoodShip
   def initialize
     @engine = Demiurge.engine_from_dsl_files *Dir["world/*.rb"]
 
-    terrain = @engine.item_by_name("start location")
+    @start_location = @engine.item_by_name("start location")
 
-    @start_zone = Demiurge::Createjs::Zone.new spritestack: terrain.tiles[:spritestack], spritesheet: terrain.tiles[:spritesheet]
+    @start_zone = Demiurge::Createjs::Zone.new spritestack: @start_location.tiles[:spritestack], spritesheet: @start_location.tiles[:spritesheet]
   end
 
   def on_open(options)
@@ -23,13 +23,13 @@ class GoodShip
 
     player.display
     player.teleport_to_tile 3, 3
-    player.walk_to_tile 16, 8, "speed" => 5.0
+    player.walk_to_tile 18, 16, "speed" => 5.0
     EM.add_timer(5) do
-      player.walk_to_tile 8, 16, "speed" => 5.0
+      player.walk_to_tile 12, 20, "speed" => 5.0
       EM.add_timer(5) do
         player.walk_to_tile 16, 16, "speed" => 5.0
         EM.add_timer(5) do
-          player.walk_to_tile 4, 4, "speed" => 5.0
+          player.walk_to_tile 30, 30, "speed" => 5.0
         end
       end
     end
