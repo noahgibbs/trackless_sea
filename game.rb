@@ -21,9 +21,14 @@ class GoodShip
     player = Demiurge::Createjs::Player.new transport: Demiurge::Createjs::Transport.new(socket), name: "player", width: CANVAS_WIDTH, height: CANVAS_HEIGHT
     player.zone = @start_zone
 
+    start_x = @engine.state_for_item("start location")["start_x"]
+    start_y = @engine.state_for_item("start location")["start_y"]
+
     player.display
+    #player.teleport_to_tile start_x, start_y
     player.teleport_to_tile 3, 3
     player.walk_to_tile 18, 16, "speed" => 5.0
+
     EM.add_timer(5) do
       player.walk_to_tile 12, 20, "speed" => 5.0
       EM.add_timer(5) do
