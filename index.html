@@ -28,7 +28,7 @@
     // If necessary, change "3001" to the appropriate port number!
     ws = new WebSocket("ws://localhost:3001/");
     dcjs_game.setTransport("websocket", ws);
-    dcjs_game.setDisplay("createjs");
+    dcjs_game.setDisplay("createjs", { canvas: "displayCanvas" });
 
     dcjs_game.setup();
   });
