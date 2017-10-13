@@ -12,6 +12,13 @@ class GoodShip
     @engine = Demiurge.engine_from_dsl_files *Dir["world/*.rb"]
 
     @start_location = @engine.item_by_name("start location")
+    start_obj = @start_location.tiles[:objects].detect { |obj| obj[:name] == "start location" }
+    if start_obj
+      @start_x = start_obj[:x] / 32
+      @start_y = start_obj[:y] / 32
+    else
+      STDERR.puts "WARNING: cannot locate object 'start location' in starting TMX area!"
+    end
 
     @start_zone = Demiurge::Createjs::Zone.new spritestack: @start_location.tiles[:spritestack], spritesheet: @start_location.tiles[:spritesheet]
   end
@@ -21,12 +28,11 @@ class GoodShip
     player = Demiurge::Createjs::Player.new transport: Demiurge::Createjs::Transport.new(socket), name: "player", width: CANVAS_WIDTH, height: CANVAS_HEIGHT
     player.zone = @start_zone
 
-    start_x = @engine.state_for_item("start location")["start_x"]
-    start_y = @engine.state_for_item("start location")["start_y"]
+    #@start_x ||= @engine.state_for_item("start location")["start_x"]
+    #@start_y ||= @engine.state_for_item("start location")["start_y"]
 
     player.display
-    #player.teleport_to_tile start_x, start_y
-    player.teleport_to_tile 3, 3
+    player.teleport_to_tile @start_x, @start_y
     player.walk_to_tile 18, 16, "speed" => 5.0
 
     EM.add_timer(5) do
