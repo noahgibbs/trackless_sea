@@ -8,8 +8,6 @@ Faye::WebSocket.load_adapter('thin')
 
 #require "demiurge-createjs"
 
-require_relative "./game.rb"
-
 file = File.new File.join(__dir__, "log", "trackless.txt"), "a+"
 file.sync = true
 use Rack::CommonLogger, file
@@ -37,5 +35,7 @@ end
 EM.error_handler do |e|
   STDERR.puts "ERROR: #{e.message}\n#{e.backtrace.join "\n"}\n"
 end
+
+require_relative "./game.rb"
 
 run combined_handler
