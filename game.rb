@@ -24,9 +24,19 @@ class GoodShip
   end
 
   def on_open(options)
+    unless @engine_started
+      # TODO: Figure out a way to do this initially instead of waiting for a first socket to be opened.
+      EM.add_periodic_timer(1) do
+        # Step game content forward by one tick - currently ignoring the player, which isn't in Demiurge
+        intentions = @engine.next_step_intentions
+        @engine.apply_intentions(intentions)
+      end
+      @engine_started = true
+    end
+
     socket = options[:transport]
     player = Demiurge::Createjs::Player.new transport: Demiurge::Createjs::Transport.new(socket), name: "player", width: CANVAS_WIDTH, height: CANVAS_HEIGHT
-    player.zone = @start_zone
+    player.move_to_zone @start_zone
 
     #@start_x ||= @engine.state_for_item("start location")["start_x"]
     #@start_y ||= @engine.state_for_item("start location")["start_y"]
