@@ -35,11 +35,12 @@ class GoodShip
     end
 
     socket = options[:transport]
-    player = Demiurge::Createjs::Player.new transport: Demiurge::Createjs::Transport.new(socket), name: "player", width: CANVAS_WIDTH, height: CANVAS_HEIGHT
+    player = Demiurge::Createjs::Player.new transport: Demiurge::Createjs::Transport.new(socket), name: "player", engine: @engine, zone: @start_zone, width: CANVAS_WIDTH, height: CANVAS_HEIGHT
     player.move_to_zone @start_zone
 
-    #@start_x ||= @engine.state_for_item("start location")["start_x"]
-    #@start_y ||= @engine.state_for_item("start location")["start_y"]
+    @engine.subscribe_to_notifications(zones: "ship") do |data|
+      player.notification(data)
+    end
 
     player.display
     player.teleport_to_tile @start_x, @start_y
