@@ -15,7 +15,11 @@ use Rack::CommonLogger, file
 use Rack::ShowExceptions
 
 # Serve .js files from .coffee files dynamically
-# TODO: figure out how to serve CoffeeScript stuff from the right dynamic root
+
+# Serve a game-local CoffeeScript root as well as Demiurge-Createjs's scripts
+use Rack::Coffee, :root => (__dir__ + "/"), :urls => "/trackless"
+
+# TODO: figure out the right way to serve CoffeeScript stuff from the right dynamic root
 coffee_root = File.join(__dir__, "..", "demiurge-createjs")
 use Rack::Coffee, :root => coffee_root, :urls => "/scripts"
 
