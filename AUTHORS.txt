@@ -1,0 +1,30 @@
+This is the AUTHORS file describing content licensing for this game.
+
+New content (maps, tilesets, graphics, world files) not mentioned
+below is created by Noah Gibbs and is licensed CC0 for general use by
+anybody, for any purpose, with any amount of credit or no credit.
+
+Code, including Ruby and JavaScript code, is MIT licensed and may be
+reused under those terms.
+
+In general, non-original graphics come from OpenGameArt.org and/or The
+Mana Project games (Land of Fire, Evol Online, The Mana World.)
+
+## Graphics: ##
+
+List of art files + license
+
+AUTHOR                             LICENSE                     FILENAME
+Hyptosis (www.lorestrome.com)      CC0                         magecity.png
+Hyptosis (www.lorestrome.com)      CC0                         hyptosis_cc0_portraits.png
+Jurkan                             CC0                         collision.png
+Johannes Sjölund                   CC BY_SA 3.0,               skeleton_hurt.png
+Johannes Sjölund                   CC BY_SA 3.0,               skeleton_slash.png
+Johannes Sjölund                   CC BY_SA 3.0,               skeleton_spellcast.png
+Johannes Sjölund                   CC BY_SA 3.0,               skeleton_walkcycle.png
+Johannes Sjölund                   CC BY_SA 3.0,               kettle_hat_male_bow.png
+Johannes Sjölund                   CC BY_SA 3.0,               kettle_hat_male_hurt.png
+Johannes Sjölund                   CC BY_SA 3.0,               kettle_hat_male_slash.png
+Johannes Sjölund                   CC BY_SA 3.0,               kettle_hat_male_spellcast.png
+Johannes Sjölund                   CC BY_SA 3.0,               kettle_hat_male_thrust.png
+Johannes Sjölund                   CC BY_SA 3.0,               kettle_hat_male_walkcycle.png
