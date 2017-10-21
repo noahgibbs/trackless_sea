@@ -12,19 +12,12 @@ Mana Project games (Land of Fire, Evol Online, The Mana World.)
 
 ## Graphics: ##
 
-List of art files + license
+Licensed CC0:
 
-AUTHOR                             LICENSE                     FILENAME
-Hyptosis (www.lorestrome.com)      CC0                         magecity.png
-Hyptosis (www.lorestrome.com)      CC0                         hyptosis_cc0_portraits.png
-Jurkan                             CC0                         collision.png
-Johannes Sjölund                   CC BY_SA 3.0,               skeleton_hurt.png
-Johannes Sjölund                   CC BY_SA 3.0,               skeleton_slash.png
-Johannes Sjölund                   CC BY_SA 3.0,               skeleton_spellcast.png
-Johannes Sjölund                   CC BY_SA 3.0,               skeleton_walkcycle.png
-Johannes Sjölund                   CC BY_SA 3.0,               kettle_hat_male_bow.png
-Johannes Sjölund                   CC BY_SA 3.0,               kettle_hat_male_hurt.png
-Johannes Sjölund                   CC BY_SA 3.0,               kettle_hat_male_slash.png
-Johannes Sjölund                   CC BY_SA 3.0,               kettle_hat_male_spellcast.png
-Johannes Sjölund                   CC BY_SA 3.0,               kettle_hat_male_thrust.png
-Johannes Sjölund                   CC BY_SA 3.0,               kettle_hat_male_walkcycle.png
+Thanks to Hyptosis of lorestrome.com for his MageCity (magecity.png) tiles and his portraits.
+Thanks to Jurkan for collision.png, a simple but vital component.
+
+Licensed CC-BY-SA 3.0:
+
+Thanks to Johannes Sjölund for the skeleton and kettle_hat sprites.
+Thanks to Lori Angela Nagel, for the robe_male_* and robe_female_* equipment sprites.
