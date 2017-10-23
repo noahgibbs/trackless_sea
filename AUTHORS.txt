@@ -21,3 +21,10 @@ Licensed CC-BY-SA 3.0:
 
 Thanks to Johannes Sjölund for the skeleton and kettle_hat sprites.
 Thanks to Lori Angela Nagel, for the robe_male_* and robe_female_* equipment sprites.
+
+The "City of Artis" (*artis*) sprites and tilesets are from
+evolonline.org, and created by EJlol, IvanMorve, Len, Reid, Saweres,
+Alige, Kestrel, Bagzie, Lien, Crush, Hal9000, Yosuhara, Nard, Micksha,
+and/or Mikko.
+
+The "City of Artis" maps are by Reid and are also from evolonline.org.
