@@ -20,11 +20,31 @@ zone "ship" do
 
   agent "wanderer" do
     type "WanderingAgent"
-    state.position = "start location"
+    state.position = "start location#27,27"
 
     display do
       manasource_humanoid do
-        layers "skeleton", "robe_male"
+        layers "skeleton", "darkblonde_female"
+      end
+    end
+  end
+  agent "wanderer2" do
+    type "WanderingAgent"
+    state.position = "start location#30,30"
+
+    display do
+      manasource_humanoid do
+        layers "male", "robe_male", "kettle_hat_male"
+      end
+    end
+  end
+  agent "wanderer3" do
+    type "WanderingAgent"
+    state.position = "start location#33,33"
+
+    display do
+      manasource_humanoid do
+        layers "female", "robe_female", "darkblonde_female", "gold_tiara_female"
       end
     end
   end
