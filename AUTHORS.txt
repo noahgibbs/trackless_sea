@@ -40,3 +40,6 @@ Level-number.png is by Reid and is from evolonline.org.
 
 Tree oversize sprites (e.g. tree-x3x3.png) are by Reid, Hal9000, Len,
 Saphy and Modanung and are from evolonline.org.
+
+Brass interface elements (brass_theme_1a.png, brass_theme_1b.png) are
+from Tempest In The Aether, submitted to OpenGameArt via Biotic.

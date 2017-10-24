@@ -23,7 +23,7 @@ use Rack::Coffee, :root => (__dir__ + "/"), :urls => "/trackless"
 coffee_root = File.join(__dir__, "..", "demiurge-createjs")
 use Rack::Coffee, :root => coffee_root, :urls => "/scripts"
 
-use Rack::Static, :urls => ["/tiles", "/sprites", "/vendor_js"]
+use Rack::Static, :urls => ["/tiles", "/sprites", "/vendor_js", "/ui"]
 
 def combined_handler
   Proc.new do |env|
