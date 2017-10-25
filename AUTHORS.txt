@@ -44,4 +44,11 @@ Saphy and Modanung and are from evolonline.org.
 Brass interface elements (brass_theme_1a.png, brass_theme_1b.png) are
 from Tempest In The Aether, submitted to OpenGameArt via Biotic.
 
-Gold Tiara and Female Darkblonde (hair) equipment sprites are by Luke Mehl.
+Gold Tiara and Female Darkblonde (hair) equipment sprites are by Luke
+Mehl.
+
+Light_forest tileset is by Redshrike (Stephen Challener) via
+OpenGameArt.org.
+
+Thanks to daneeklu (Daniel Eddeland) for his farming_fishing, magic
+and UI sprites.
