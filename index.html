@@ -11,6 +11,7 @@
   <script src="/scripts/dcjs_createjs_loader.js"></script>
   <script src="/scripts/dcjs_createjs_spritesheet.js"></script>
   <script src="/scripts/dcjs_createjs_spritestack.js"></script>
+  <script src="/scripts/dcjs_createjs_text_anim.js"></script>
   <script src="/trackless/simulation.js"></script>
 
 </head>
@@ -27,12 +28,15 @@
 
     window.dcjs_game = new DCJS();
     // If necessary, change "3001" to the appropriate port number!
-    ws = new WebSocket("ws://localhost:3001/");
+    var ws = new WebSocket("ws://localhost:3001/");
     dcjs_game.setTransport(new DCJS.WebsocketTransport(dcjs_game, ws));
-    dcjs_game.setDisplay(new DCJS.CreatejsDisplay(dcjs_game, { canvas: "displayCanvas" }));
+    var display = new DCJS.CreatejsDisplay(dcjs_game, { canvas: "displayCanvas" });
+    dcjs_game.setDisplay(display);
     dcjs_game.setSimulation(new Trackless(dcjs_game));
 
     dcjs_game.setup();
+
+    var anim = new window.DCJS.CreatejsDisplay.TextAnim(display.stage, "Hello world, I say!", { x: 50, y: 75, duration: 5.0 } );
   });
 
 //]]>
