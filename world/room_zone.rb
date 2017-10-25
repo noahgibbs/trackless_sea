@@ -28,10 +28,16 @@ zone "ship" do
       end
     end
   end
+
   agent "wanderer2" do
     type "WanderingAgent"
     state.position = "start location#30,30"
     state.wander_every = 1
+
+    every_X_ticks("random speech", 6) do
+      text = ["I am not a cow!", "That trick never works!", "Ooh, a penny!", "I hate Thursdays.", "I control what everyone says!", "Oof, my stomach hurts."]
+      notification type: "speech", words: text.sample, duration: 5
+    end
 
     display do
       manasource_humanoid do
@@ -39,6 +45,7 @@ zone "ship" do
       end
     end
   end
+
   agent "wanderer3" do
     type "WanderingAgent"
     state.position = "start location#33,33"
