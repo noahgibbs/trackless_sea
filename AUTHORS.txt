@@ -52,3 +52,5 @@ OpenGameArt.org.
 
 Thanks to daneeklu (Daniel Eddeland) for his farming_fishing, magic
 and UI sprites.
+
+Thanks to Chris Phillips/Team River Fox for evilchurch.png.
