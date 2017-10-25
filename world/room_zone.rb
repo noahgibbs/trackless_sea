@@ -31,6 +31,7 @@ zone "ship" do
   agent "wanderer2" do
     type "WanderingAgent"
     state.position = "start location#30,30"
+    state.wander_every = 1
 
     display do
       manasource_humanoid do
@@ -41,6 +42,7 @@ zone "ship" do
   agent "wanderer3" do
     type "WanderingAgent"
     state.position = "start location#33,33"
+    state.wander_every = 5
 
     display do
       manasource_humanoid do
