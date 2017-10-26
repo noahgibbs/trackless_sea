@@ -1,7 +1,7 @@
 zone "trackless island" do
   type "TmxZone"
 
-  tmx_location "start location" do
+  tmx_location "front halls" do
     manasource_tile_layout "tmx/front_halls.tmx"
     description "In a Surreally Huge Hall of a Large, Dreamlike Tower"
 
