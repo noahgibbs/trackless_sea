@@ -20,7 +20,7 @@ zone "trackless island" do
 
   agent "wanderer2" do
     type "WanderingAgent"
-    state.position = "start location#30,30"
+    state.position = "start location#30,27"
     state.wander_every = 1
 
     every_X_ticks("random speech", 6) do
@@ -31,18 +31,6 @@ zone "trackless island" do
     display do
       manasource_humanoid do
         layers "male", "robe_male", "kettle_hat_male"
-      end
-    end
-  end
-
-  agent "wanderer3" do
-    type "WanderingAgent"
-    state.position = "start location#33,33"
-    state.wander_every = 5
-
-    display do
-      manasource_humanoid do
-        layers "female", "robe_female", "darkblonde_female", "gold_tiara_female"
       end
     end
   end
