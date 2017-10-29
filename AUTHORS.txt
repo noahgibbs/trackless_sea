@@ -14,9 +14,9 @@ Mana Project games (Land of Fire, Evol Online, The Mana World.)
 
 Licensed CC0:
 
-Thanks to Hyptosis of lorestrome.com for his MageCity (magecity.png)
-tiles and his portraits.  Thanks to Jurkan for collision.png, a simple
-but vital component.
+Thanks to Hyptosis of lorestrome.com for his MageCity (magecity.png,
+magecity-x1x5.png, magecity-x1x2.png) tiles and his portraits. Thanks
+to Jurkan for collision.png, a simple but vital component.
 
 Licensed CC-BY-SA 3.0:
 
