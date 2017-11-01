@@ -4,7 +4,7 @@ require "demiurge/dsl"
 require "demiurge/tmx"
 
 require "demiurge/createjs/engine_sync"
-require "demiurge/createjs/engine_accounts"
+require "demiurge/createjs/json_accounts"
 require "demiurge/createjs/login_unique"
 
 # TODO: Set the HTML canvas from these? Or vice-versa?
@@ -12,14 +12,15 @@ CANVAS_WIDTH = 640
 CANVAS_HEIGHT = 480
 
 class GoodShip
-  # Store player accounts inside the Demiurge engine state
-  include Demiurge::Createjs::EngineAccounts;
+  # Store player accounts in a JSON file
+  include Demiurge::Createjs::JsonAccounts;
+  # Only one login per player at a time
   include Demiurge::Createjs::LoginUnique;
 
   def initialize
     @engine = Demiurge.engine_from_dsl_files *Dir["world/*.rb"]
     @engine_sync = Demiurge::Createjs::EngineSync.new(@engine)
-    set_accounts_engine_sync(@engine_sync)
+    set_accounts_json_filename("accounts.json")
   end
 
   def on_create_player(websocket, username)

@@ -4,3 +4,5 @@ log/*.txt
 trackless_server.key
 trackless_server.crt
 trackless_server.orig.key
+accounts.json
+accounts.json.old
