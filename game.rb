@@ -36,7 +36,7 @@ class GoodShip
       EM.add_periodic_timer(1) do
         # Step game content forward by one tick
         intentions = @engine.next_step_intentions
-        @engine.apply_intentions(intentions, :nofreeze => true)  # We use account data in the engine state, so we can't freeze between steps.
+        @engine.apply_intentions(intentions)
       end
       @engine_started = true
     end
