@@ -20,19 +20,26 @@ class GoodShip
   def initialize
     @engine = Demiurge.engine_from_dsl_files *Dir["world/*.rb"]
     @engine_sync = Demiurge::Createjs::EngineSync.new(@engine)
+    set_accounts_json_filename("accounts.json")
+
     @template = @engine.item_by_name("player template")
+    raise("Can't find player template object!") unless @template
     @start_location = @engine.item_by_name("start location")
     start_obj = @start_location.tmx_object_by_name("start location")
     tilewidth = @start_location.tiles[:spritesheet][:tilewidth]
     tileheight = @start_location.tiles[:spritesheet][:tileheight]
     @start_position = "start location##{start_obj[:x] / tilewidth},#{start_obj[:y] / tileheight}"
-    raise("Can't find player template object!") unless @template
-    set_accounts_json_filename("accounts.json")
   end
 
   def on_create_player(websocket, username)
-    body = @engine.instantiate_new_item("#{username}_player_agent", @template, "position" => @start_position)
+    # Find or create a Demiurge agent as the player's body
+    player_agent_name = "#{username}_player_agent"
+    body = @engine.item_by_name(player_agent_name) ||
+      @engine.instantiate_new_item(player_agent_name, @template, "position" => @start_position)
+
+    # And create a Demiurge::Createjs::Player for the player's viewpoint
     player = Demiurge::Createjs::Player.new websocket: websocket, name: username, demi_agent: body, engine_sync: @engine_sync, width: CANVAS_WIDTH, height: CANVAS_HEIGHT
+
     player.message "displayInit", { "width" => CANVAS_WIDTH, "height" => CANVAS_HEIGHT }
     player.register  # Attach to EngineSync
     player

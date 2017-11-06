@@ -72,9 +72,12 @@ function game_register() {
     return;
   }
 
-  window.dcjs_game.transport.register_account(username, password);
+  window.dcjs_game.transport.registerAccount(username, password);
 };
 
+function good_login(username) {
+  $(".login").hide();
+};
 function bad_login(reason) {
   $(".errdisplay").text("The server couldn't log you in: " + reason);
   $(".login").show();
@@ -95,6 +98,9 @@ function bad_login(reason) {
     dcjs_game.setMessageHandler("sim", new Trackless(dcjs_game));
 
     dcjs_game.setup();
+    dcjs_game.transport.onOpen(function() { dcjs_game.transport.considerAutoLogin(); });
+    dcjs_game.transport.onLogin(good_login);
+    dcjs_game.transport.onFailedLogin(bad_login);
 
     $(".loginform").submit(function(event) {
       event.preventDefault();  // Don't trigger normal form handler.
@@ -110,8 +116,6 @@ function bad_login(reason) {
       event.preventDefault();
       game_register();
     });
-
-    dcjs_game.transport.on_failed_login(bad_login);
   });
 
 //]]>
