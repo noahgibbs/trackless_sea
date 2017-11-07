@@ -1,56 +1,139 @@
 This is the AUTHORS file describing content licensing for this game.
 
-New content (maps, tilesets, graphics, world files) not mentioned
-below is created by Noah Gibbs and is licensed CC0 for general use by
-anybody, for any purpose, with any amount of credit or no credit.
+New artistic content (maps, tilesets, graphics, world files) not
+mentioned below is created by Noah Gibbs and is licensed CC0 for
+general use by anybody, for any purpose, with any amount of credit or
+no credit.
 
 Code, including Ruby and JavaScript code, is MIT licensed and may be
 reused under those terms.
 
-In general, non-original graphics come from OpenGameArt.org and/or The
-Mana Project games (Land of Fire, Evol Online, The Mana World.)
+In general, non-original graphics come from OpenGameArt.org and/or
+SourceOfTales and/or The Mana Project games (Land of Fire, Evol
+Online, The Mana World.)
 
 ## Graphics: ##
 
 Licensed CC0:
 
-Thanks to Hyptosis of lorestrome.com for his MageCity (magecity.png,
-magecity-x1x5.png, magecity-x1x2.png) tiles and his portraits. Thanks
-to Jurkan for collision.png, a simple but vital component.
+Credit                             License                     Filename                     Contributor(s)
+Hyptosis (www.lorestrome.com)      CC0                         tiles/magecity.png
+Hyptosis (www.lorestrome.com)      CC0                         tiles/magecity-x1x2.png      (NoahGibbs)
+Hyptosis (www.lorestrome.com)      CC0                         tiles/magecity-x1x5.png      (NoahGibbs)
 
 Licensed CC-BY-SA 3.0:
 
-Thanks to Johannes Sjölund for the skeleton and kettle_hat sprites.
-Thanks to Lori Angela Nagel, for the robe_male_* and robe_female_*
-equipment sprites.
+From OpenGameArt.org:
 
-The "City of Artis" (including *artis*.png) sprites and tilesets are
-from evolonline.org, and created by EJlol, IvanMorve, Len, Reid,
-Saweres, Alige, Kestrel, Bagzie, Lien, Crush, Hal9000, Yosuhara, Nard,
-Micksha, and/or Mikko.
+Stephen Challener (AKA Redshrike)  CC BY-SA 3.0                light_forest.png
+Tempest In The Aether (via Biotic) CC BY-SA 3.0                brass_theme_1a.png
+Tempest In The Aether (via Biotic) CC BY-SA 3.0                brass_theme_1b.png
 
-The "City of Artis" maps and various TSX tileset files are by Reid and
-are also from evolonline.org.
+From SourceOfTales (http://www.sourceoftales.org/):
 
-Ship-flags-x3x2.png are by Reid and Alige, from evolonline.org.
+Lanea Zimmerman (AKA Sharm)        CC BY-SA 3.0, GPLv3         tiles/terrain.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         tiles/farming_fishing.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         tiles/fence_alt.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         tiles/plants.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         tiles/plowed_soil.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         tiles/reed.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         tiles/tallgrass.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         ui/scrollsandblocks.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         effects/magic_firelion_big.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         effects/magic_firelion_sheet.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         effects/magic_iceshield_sheet.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         effects/magic_snakebite_sheet.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         effects/magic_torrentacle.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         effects/magic_turtleshell_front.png
+Daniel Eddeland                    CC BY_SA 3.0, GPLv3         effects/magic_turtleshell_side.png
+Chris Phillips/Team River Fox      CC BY_SA 3.0, GPLv3         tiles/evilchurch.png
 
-Carpet.png is by Irukard and Reid from evolonline.org.
+Lori Angela Nagel                  CC BY_SA 3.0, GPLv3         sprites/robe_female_hurt.png
+Lori Angela Nagel                  CC BY_SA 3.0, GPLv3         sprites/robe_female_slash.png
+Lori Angela Nagel                  CC BY_SA 3.0, GPLv3         sprites/robe_female_spellcast.png
+Lori Angela Nagel                  CC BY_SA 3.0, GPLv3         sprites/robe_female_walkcycle.png
+Lori Angela Nagel                  CC BY_SA 3.0, GPLv3         sprites/robe_male_hurt.png
+Lori Angela Nagel                  CC BY_SA 3.0, GPLv3         sprites/robe_male_slash.png
+Lori Angela Nagel                  CC BY_SA 3.0, GPLv3         sprites/robe_male_spellcast.png
+Lori Angela Nagel                  CC BY_SA 3.0, GPLv3         sprites/robe_male_walkcycle.png
+Luke Mehl                          CC BY_SA 3.0, GPLv3         sprites/gold_tiara_female_hurt.png
+Luke Mehl                          CC BY_SA 3.0, GPLv3         sprites/gold_tiara_female_slash.png
+Luke Mehl                          CC BY_SA 3.0, GPLv3         sprites/gold_tiara_female_spellcast.png
+Luke Mehl                          CC BY_SA 3.0, GPLv3         sprites/gold_tiara_female_walkcycle.png
+Luke Mehl                          CC BY_SA 3.0, GPLv3         sprites/darkblonde_female_hurt.png
+Luke Mehl                          CC BY_SA 3.0, GPLv3         sprites/darkblonde_female_slash.png
+Luke Mehl                          CC BY_SA 3.0, GPLv3         sprites/darkblonde_female_spellcast.png
+Luke Mehl                          CC BY_SA 3.0, GPLv3         sprites/darkblonde_female_walkcycle.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/kettle_hat_male_bow.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/kettle_hat_male_hurt.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/kettle_hat_male_slash.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/kettle_hat_male_spellcast.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/kettle_hat_male_thrust.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/kettle_hat_male_walkcycle.png
 
-Level-number.png is by Reid and is from evolonline.org.
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/monsters/skeleton_hurt.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/monsters/skeleton_slash.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/monsters/skeleton_spellcast.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/monsters/skeleton_walkcycle.png
 
-Tree oversize sprites (e.g. tree-x3x3.png) are by Reid, Hal9000, Len,
-Saphy and Modanung and are from evolonline.org.
+From Evol Online (http://evolonline.org):
 
-Brass interface elements (brass_theme_1a.png, brass_theme_1b.png) are
-from Tempest In The Aether, submitted to OpenGameArt via Biotic.
+# Folder
+    path/to/the/licensed/work.something (Authors' Nick)                     (License)             (Contributors' Nick)
 
-Gold Tiara and Female Darkblonde (hair) equipment sprites are by Luke
-Mehl.
+    tiles/accessory.png (Alige, Coolkid782, Hal9000, Len, Reid) (CC BY-SA 3.0)        (-)
+    tiles/artis-accessory.png (EJlol, IvanMorve, Len, Reid)     (CC BY-SA 3.0)        (Saweres)
+    tiles/artis-accessory-x1x2.png (EJlol, IvanMorve, Reid)     (CC BY-SA 3.0)        (-)
+    tiles/artis-archway-x1x4.png (IvanMorve, Reid)              (CC BY-SA 3.0)        (-)
+    tiles/artis-archway-x1x5.png (IvanMorve, Reid)              (CC BY-SA 3.0)        (-)
+    tiles/artis-blockwall.png (Hal9000, Reid)                   (CC BY-SA 3.0)        (Alige)
+    tiles/artis-bridge.png (Hal9000)                            (CC BY-SA 3.0)        (Alige, EJlol, Reid)
+    tiles/artis-chimney-x3x4.png (Reid)                         (CC BY-SA 3.0)        (-)
+    tiles/artis-dock.png (Reid)                                 (CC BY-SA 3.0)        (Alige)
+    tiles/artis-fence.png (Reid)                                (CC BY-SA 3.0)        (Kestrel)
+    tiles/artis-fountain.png (Bagzie)                           (CC BY-SA 3.0)        (-)
+    tiles/artis-fountain-x1x4.png (Bagzie)                      (CC BY-SA 3.0)        (-)
+    tiles/artis-fountain-x3x2.png (Alige, IvanMorve)            (CC BY-SA 3.0)        (-)
+    tiles/artis-harbour-x4x2.png (EJlol, Reid)                  (CC BY-SA 3.0)        (-)
+    tiles/artis-harbour-x4x6.png (EJlol, Reid)                  (CC BY-SA 3.0)        (-)
+    tiles/artis-harbour-x6x4.png (EJlol, Reid)                  (CC BY-SA 3.0)        (-)
+    tiles/artis-house.png (IvanMorve, Reid)                     (CC BY-SA 3.0)        (-)
+    tiles/artis-indoor.png (Reid, Saweres)                      (CC BY-SA 3.0)        (IvanMorve, Lien)
+    tiles/artis-indoor-cellar.png (Hal9000, Reid)               (CC BY-SA 3.0)        (-)
+    tiles/artis-indoor-fringe.png (Crush, Saweres)              (CC BY-SA 3.0)        (Reid, Yosuhara)
+    tiles/artis-indoor-x1x2.png (Hal9000, Reid)                 (CC BY-SA 3.0)        (-)
+    tiles/artis-indoor-x1x3.png (Reid, Nard)                    (CC BY-SA 3.0)        (Bagzie)
+    tiles/artis-indoor-x1x4.png (Reid)                          (CC BY-SA 3.0)        (-)
+    tiles/artis-indoor-x2x4.png (Reid)                          (CC BY-SA 3.0)        (-)
+    tiles/artis-lamps.png (Alige)                               (CC BY-SA 3.0)        (Reid)
+    tiles/artis-lamps-x1x3.png (Alige)                          (CC BY-SA 3.0)        (Reid)
+    tiles/artis-market.png (EJlol, IvanMorve, Reid)             (CC BY-SA 3.0)        (-)
+    tiles/artis-pavement.png (IvanMorve, Reid)                  (CC BY-SA 3.0)        (-)
+    tiles/artis-pillar-x1x2.png (Reid)                          (CC BY-SA 3.0)        (Kestrel)
+    tiles/artis-sewer.png (EJlol, Hal9000, Micksha, Reid)       (CC BY-SA 3.0)        (-)
+    tiles/artis-sewer-x2x2.png (EJlol, Hal9000, Micksha, Reid)  (CC BY-SA 3.0)        (-)
+    tiles/artis-sewer-x3x3.png (EJlol, Hal9000, Micksha, Reid)  (CC BY-SA 3.0)        (-)
+    tiles/artis-shadows.png (Mikko)                             (CC BY-SA 3.0)        (-)
+    tiles/artis-windows.png (IvanMorve, Reid)                   (CC BY-SA 3.0)        (Mikko)
+    tiles/box.png (Crush, Len, Modanung, Reid, Yosuhara)        (CC BY-SA 3.0)        (Alige, Enchilado, Saweres)
+    tiles/box-x1x2.png (Len, Reid, Saweres)                     (CC BY-SA 3.0)        (-)
+    tiles/candle-x1x2.png (Reid)                                (CC BY-SA 3.0)        (Crush)
+    tiles/carpet.png (Irukard)                                  (CC BY-SA 3.0)        (Reid)
+    tiles/collision.png (Reid)                                  (CC BY-SA 3.0)        (4144)
+    tiles/ground.png (Bagzie, IvanMorve, Len, Reid)             (CC BY-SA 3.0)        (Crush)
+    tiles/shadow.png (Reid)                                     (CC BY-SA 3.0)        (Hal9000)
+    tiles/ship-indoor-fringe.png (Crush)                        (CC BY-SA 3.0)        (Reid, Yosuhara)
+    tiles/ship-indoor-x2x4.png (Reid)                           (CC BY-SA 3.0)        (-)
+    tiles/ship-flags-x3x2.png (Alige)                           (CC BY-SA 3.0)        (Reid)
+    tiles/tree-x3x3.png (Hal9000)                               (CC BY-SA 3.0)        (Reid)
+    tiles/tree-x3x4.png (Len, Saphy)                            (CC BY-SA 3.0)        (Modanung, Reid)
+    tiles/tree-x4x5.png (Saphy)                                 (CC BY-SA 3.0)        (Reid)
+    tiles/water.png (Len)                                       (CC BY-SA 3.0)        (Alige, Reid)
 
-Light_forest tileset is by Redshrike (Stephen Challener) via
-OpenGameArt.org.
-
-Thanks to daneeklu (Daniel Eddeland) for his farming_fishing, magic
-and UI sprites.
-
-Thanks to Chris Phillips/Team River Fox for evilchurch.png.
+    effects/orb-large.png (Reid)                                 (CC BY-SA 3.0)        (-)
+    effects/orb-large2.png (Reid)                                (CC BY-SA 3.0)        (-)
+    effects/orb-medium.png (Crush)                               (CC BY-SA 3.0)        (-)
+    effects/orb-small.png (Crush)                                (CC BY-SA 3.0)        (-)
+    effects/sparkles.png (Crush)                                 (CC BY-SA 3.0)        (-)
+    effects/star-medium.png (Crush)                              (CC BY-SA 3.0)        (-)
+    effects/star-small.png (Crush)                               (CC BY-SA 3.0)        (-)
