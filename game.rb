@@ -31,7 +31,7 @@ class GoodShip
     @start_position = "start location##{start_obj[:x] / tilewidth},#{start_obj[:y] / tileheight}"
   end
 
-  def on_create_player(websocket, username)
+  def on_player_login(websocket, username)
     # Find or create a Demiurge agent as the player's body
     player_agent_name = "#{username}_player_agent"
     body = @engine.item_by_name(player_agent_name) ||
@@ -43,6 +43,12 @@ class GoodShip
     player.message "displayInit", { "width" => CANVAS_WIDTH, "height" => CANVAS_HEIGHT }
     player.register  # Attach to EngineSync
     player
+  end
+
+  def on_player_logout(websocket, player)
+    player_agent_name = "#{player.name}_player_agent"
+    body = @engine.item_by_name(player_agent_name)
+    # TODO: make the player agent disappear when the player logs out
   end
 
   def on_open(transport, event)
@@ -59,10 +65,9 @@ class GoodShip
     # Now, wait for login.
   end
 
+  # Don't override on_close without calling super or the included LoginUnique module won't work right.
   def on_close(transport, event)
-  end
-
-  def on_message(transport, event)
+    super
   end
 
   def on_error(transport, event)
