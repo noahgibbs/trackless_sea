@@ -83,6 +83,33 @@ function bad_login(reason) {
   $(".login").show();
 };
 
+var KEYCODE_LEFT = 37,
+    KEYCODE_RIGHT = 39,
+    KEYCODE_UP = 38,
+    KEYCODE_DOWN = 40;
+function keyhandler(event) {
+  switch(event.keyCode) {
+  case KEYCODE_LEFT:
+    dcjs_game.transport.playerAction("move", "left")
+    event.preventDefault();
+    break;
+  case KEYCODE_RIGHT:
+    dcjs_game.transport.playerAction("move", "right")
+    event.preventDefault();
+    break;
+  case KEYCODE_UP:
+    dcjs_game.transport.playerAction("move", "up")
+    event.preventDefault();
+    break;
+  case KEYCODE_DOWN:
+    dcjs_game.transport.playerAction("move", "down")
+    event.preventDefault();
+    break;
+  default:
+    console.log("Unknown keycode:", event.keyCode);
+  };
+};
+
   $(function(){
     if(!("WebSocket" in window)) {
       alert("Sorry, your browser does not appear to support WebSockets. Please upgrade to the latest version of your browser.");
@@ -116,6 +143,8 @@ function bad_login(reason) {
       event.preventDefault();
       game_register();
     });
+
+    $(document).keydown(keyhandler);
   });
 
 //]]>

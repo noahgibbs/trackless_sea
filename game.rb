@@ -51,6 +51,16 @@ class GoodShip
     # TODO: make the player agent disappear when the player logs out
   end
 
+  def on_player_action_message(websocket, action_name, *args)
+    STDERR.puts "Got player action: #{action_name.inspect} / #{args.inspect}"
+    player = player_by_websocket(websocket) # LoginUnique defines player_by_websocket and player_by_name
+    if action_name == "move"
+      player.demi_agent.queue_action "move", args[0]
+      return
+    end
+    raise "Unknown player action #{action_name.inspect} with args #{args.inspect}!"
+  end
+
   def on_open(transport, event)
     unless @engine_started
       # TODO: Figure out a way to do this initially instead of waiting for a first socket to be opened.
