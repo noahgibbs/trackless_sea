@@ -64,7 +64,7 @@ class GoodShip
   def on_open(transport, event)
     unless @engine_started
       # TODO: Figure out a way to do this initially instead of waiting for a first socket to be opened.
-      EM.add_periodic_timer(1) do
+      EM.add_periodic_timer(0.33) do
         # Step game content forward by one tick
         intentions = @engine.next_step_intentions
         @engine.apply_intentions(intentions)
