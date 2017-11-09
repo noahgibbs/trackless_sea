@@ -10,6 +10,7 @@ require "demiurge/createjs/login_unique"
 # TODO: Set the HTML canvas from these? Or vice-versa?
 CANVAS_WIDTH = 640
 CANVAS_HEIGHT = 480
+TICK_MILLISECONDS = 300
 
 class GoodShip
   # Store player accounts in a JSON file
@@ -40,7 +41,7 @@ class GoodShip
     # And create a Demiurge::Createjs::Player for the player's viewpoint
     player = Demiurge::Createjs::Player.new websocket: websocket, name: username, demi_agent: body, engine_sync: @engine_sync, width: CANVAS_WIDTH, height: CANVAS_HEIGHT
 
-    player.message "displayInit", { "width" => CANVAS_WIDTH, "height" => CANVAS_HEIGHT }
+    player.message "displayInit", { "width" => CANVAS_WIDTH, "height" => CANVAS_HEIGHT, "ms_per_tick" => TICK_MILLISECONDS }
     player.register  # Attach to EngineSync
     player
   end
@@ -64,7 +65,7 @@ class GoodShip
   def on_open(transport, event)
     unless @engine_started
       # TODO: Figure out a way to do this initially instead of waiting for a first socket to be opened.
-      EM.add_periodic_timer(0.33) do
+      EM.add_periodic_timer(0.001 * TICK_MILLISECONDS) do
         # Step game content forward by one tick
         intentions = @engine.next_step_intentions
         @engine.apply_intentions(intentions)
