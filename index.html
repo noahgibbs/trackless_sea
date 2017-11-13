@@ -57,6 +57,10 @@ function game_login() {
   window.dcjs_game.transport.login(username, password);
 };
 
+function game_logout() {
+  window.dcjs_game.transport.logout();
+};
+
 function game_register() {
   var username = $(".username_field").val();
   var password = $(".password_field").val();
@@ -169,6 +173,7 @@ function keyhandler(event) {
 
 <ul>
   <li><a href="/static/AUTHORS.txt">Credits for Graphics, Maps and Everything Creative</li>
+  <li><a onclick="game_logout();">Log Out</li>
 </ul>
 
 </body>

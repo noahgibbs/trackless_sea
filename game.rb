@@ -19,6 +19,10 @@ class GoodShip
   include Demiurge::Createjs::LoginUnique;
 
   def initialize
+    # Ruby extensions in the World Files? Load them.
+    Dir["**/world/extensions/**/*.rb"].each do |ruby_ext|
+      require_relative ruby_ext
+    end
     @engine = Demiurge.engine_from_dsl_files *Dir["world/*.rb"]
     @engine_sync = Demiurge::Createjs::EngineSync.new(@engine)
     set_accounts_json_filename("accounts.json")
@@ -35,8 +39,12 @@ class GoodShip
   def on_player_login(websocket, username)
     # Find or create a Demiurge agent as the player's body
     player_agent_name = "#{username}_player_agent"
-    body = @engine.item_by_name(player_agent_name) ||
-      @engine.instantiate_new_item(player_agent_name, @template, "position" => @start_position)
+    body = @engine.item_by_name(player_agent_name)
+    unless body
+      body = @engine.instantiate_new_item(player_agent_name, @template, "position" => @start_position)
+      body.run_action("create") if body.get_action("create")
+    end
+    body.run_action("login") if body.get_action("login")
 
     # And create a Demiurge::Createjs::Player for the player's viewpoint
     player = Demiurge::Createjs::Player.new websocket: websocket, name: username, demi_agent: body, engine_sync: @engine_sync, width: CANVAS_WIDTH, height: CANVAS_HEIGHT
@@ -49,7 +57,7 @@ class GoodShip
   def on_player_logout(websocket, player)
     player_agent_name = "#{player.name}_player_agent"
     body = @engine.item_by_name(player_agent_name)
-    # TODO: make the player agent disappear when the player logs out
+    body.run_action("logout") if body && body.get_action("logout")
   end
 
   def on_player_action_message(websocket, action_name, *args)
