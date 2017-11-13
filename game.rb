@@ -75,8 +75,7 @@ class GoodShip
       # TODO: Figure out a way to do this initially instead of waiting for a first socket to be opened.
       EM.add_periodic_timer(0.001 * TICK_MILLISECONDS) do
         # Step game content forward by one tick
-        intentions = @engine.next_step_intentions
-        @engine.apply_intentions(intentions)
+        @engine.advance_one_tick
       end
       @engine_started = true
     end
