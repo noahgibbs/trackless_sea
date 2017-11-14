@@ -1,6 +1,7 @@
-incoming_traffic.json
-outgoing_traffic.json
+log/incoming_traffic.json
+log/outgoing_traffic.json
 log/*.txt
+state/*
 trackless_server.key
 trackless_server.crt
 trackless_server.orig.key
