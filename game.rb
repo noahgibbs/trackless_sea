@@ -70,15 +70,18 @@ class GoodShip
     raise "Unknown player action #{action_name.inspect} with args #{args.inspect}!"
   end
 
-  def on_open(transport, event)
-    unless @engine_started
-      # TODO: Figure out a way to do this initially instead of waiting for a first socket to be opened.
-      EM.add_periodic_timer(0.001 * TICK_MILLISECONDS) do
-        # Step game content forward by one tick
-        @engine.advance_one_tick
-      end
-      @engine_started = true
+  def run_engine
+    return if @engine_started
+    EM.add_periodic_timer(0.001 * TICK_MILLISECONDS) do
+      # Step game content forward by one tick
+      @engine.advance_one_tick
     end
+    @engine_started = true
+  end
+
+  def on_open(transport, event)
+    # TODO: Figure out a way to do this initially instead of waiting for a first socket to be opened.
+    run_engine
 
     # Now, wait for login.
   end
