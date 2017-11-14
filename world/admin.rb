@@ -22,9 +22,11 @@ zone "admin" do
     # Special action that gets performed by the agent on character login
     define_action("login", "engine_code" => true) do
       raise("Called login on a non-player item!") unless @item.name["_player_agent"]
-      item.state["player"] = item.name[0..-14]  # Remove "_player_agent" from the end of the name
+      player_name = item.name[0..-14] # Remove "_player_agent" from the end of the name
+      item.state["player"] ||= player_name
       player_item = engine.item_by_name("players")
-      current_position = player_item.state["active_position"]
+      player_state = player_item.state[player_name]
+      current_position = player_state ? player_state["active_position"] : nil
       player_item.state.delete "active_position" # Delete the old active position
       if current_position
         item.move_to_position(current_position)
