@@ -6,3 +6,4 @@ trackless_server.crt
 trackless_server.orig.key
 accounts.json
 accounts.json.old
+tmp/restart.txt
