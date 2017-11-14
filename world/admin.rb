@@ -52,6 +52,10 @@ zone "admin" do
       dump_state
     end
 
+    define_action("reboot server", "tags" => ["admin", "player_action"]) do
+      FileUtils.touch "tmp/restart.txt"
+    end
+
     display do
       manasource_humanoid do
         layers "skeleton", "darkblonde_female"
