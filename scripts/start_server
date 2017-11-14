@@ -24,13 +24,12 @@ if [ ! -f trackless_server.crt ]; then
   cp ~/.ssh/trackless_server.* .
 fi
 
-#thin start -R config.ru -p 3002 --ssl --ssl-key-file ./trackless_server.key --ssl-cert-file ./trackless_server.crt &
-#thin start -R config.ru -p 3001 &
+rerun --dir tmp --pattern restart.txt "thin start -R config.ru -p 3001 --ssl --ssl-disable-verify --ssl-key-file ./trackless_server.key --ssl-cert-file ./trackless_server.crt"
 
 # Thin doesn't seem to support HTTP and HTTPS on the same port (fair), but *does* support HTTPS and WSS on the same port.
-thin start -R config.ru -p 3001 --ssl --ssl-disable-verify --ssl-key-file ./trackless_server.key --ssl-cert-file ./trackless_server.crt
+#thin start -R config.ru -p 3001 --ssl --ssl-disable-verify --ssl-key-file ./trackless_server.key --ssl-cert-file ./trackless_server.crt
 #thin start -R config.ru -p 3001
 
-# I'm having *no* luck getting Puma to work for this.
+# I'm having *no* luck getting Puma to work for this. It might be a Faye or Faye-Websockets problem.
 #puma -b 'ssl://127.0.0.1:3001?key=trackless_server.key&cert=trackless_server.crt'
 #puma -b 'tcp://127.0.0.1:3001'
