@@ -11,6 +11,7 @@ require "demiurge/createjs/login_unique"
 CANVAS_WIDTH = 640
 CANVAS_HEIGHT = 480
 TICK_MILLISECONDS = 300
+TICKS_PER_SAVE = (60 * 1000 / TICK_MILLISECONDS)  # Every 1 minute
 
 class GoodShip
   # Store player accounts in a JSON file
@@ -24,6 +25,21 @@ class GoodShip
       require_relative ruby_ext
     end
     @engine = Demiurge.engine_from_dsl_files *Dir["world/*.rb"]
+
+    # If we restore state, we should do it before the EngineSync is
+    # created.  Otherwise we have to replay a lot of "new item"
+    # notifications or otherwise register a bunch of state with the
+    # EngineSync. TODO: make a state-restore give a notification
+    # to allow the EngineSync to just roll with it.
+    last_statefile = [ "state/shutdown_statefile.json", "state/periodic_statefile.json", "state/error_statefile.json" ].detect do |f|
+      File.exist?(f)
+    end
+    if last_statefile
+      STDERR.puts "Restoring state data from #{last_statefile.inspect}."
+      state_data = MultiJson.load File.read(last_statefile)
+      @engine.load_state_from_dump(state_data)
+    end
+
     @engine_sync = Demiurge::Createjs::EngineSync.new(@engine)
     set_accounts_json_filename("accounts.json")
 
@@ -72,9 +88,27 @@ class GoodShip
 
   def run_engine
     return if @engine_started
+
+    counter = 0
     EM.add_periodic_timer(0.001 * TICK_MILLISECONDS) do
       # Step game content forward by one tick
-      @engine.advance_one_tick
+      begin
+        @engine.advance_one_tick
+        counter += 1
+        if counter % TICKS_PER_SAVE
+          ss = @engine.structured_state
+          File.open("state/periodic_statefile.json", "w") do |f|
+            f.print MultiJson.dump(ss, :pretty => true)
+          end
+        end
+      rescue
+        STDERR.puts "Error trace:\n#{$!.message}\n#{$!.backtrace.join("\n")}"
+        STDERR.puts "Error when advancing engine state. Dumping state, skipping tick."
+        ss = @engine.structured_state
+        File.open("state/error_statefile.json", "w") do |f|
+          f.print MultiJson.dump(ss, :pretty => true)
+        end
+      end
     end
     @engine_started = true
   end
