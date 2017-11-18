@@ -40,12 +40,28 @@ zone "admin" do
       player_state["active_position"] = item.position
       # Logged out? Teleport the player's agent to the "admin" zone,
       # in a sort of suspended animation.
-      teleport_instant("admin")
+      move_to_instant("admin")
     end
 
     define_action("move", "tags" => ["player_action", "agent_action"]) do |direction|
+      location, next_x, next_y = position_to_location_and_tile_coords(item.position)
+
+      case direction
+      when "up"
+        next_y -= 1
+      when "down"
+        next_y += 1
+      when "left"
+        next_x -= 1
+      when "right"
+        next_x += 1
+      else
+        raise "Unrecognized direction #{direction.inspect} in 'move' action!"
+      end
+      next_position = "#{location}##{next_x},#{next_y}"
+
       # Just a straight-up move-immediately-if-possible, no frills.
-      move_instant(direction)
+      move_to_instant(next_position)
     end
 
     define_action("statedump", "tags" => ["admin", "player_action"]) do
