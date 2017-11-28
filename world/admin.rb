@@ -21,8 +21,8 @@ zone "admin" do
 
     # Special action that gets performed by the agent on character login
     define_action("login", "engine_code" => true) do
-      raise("Called login on a non-player item!") unless @item.name["_player_agent"]
-      player_name = item.name[0..-14] # Remove "_player_agent" from the end of the name
+      raise("Called login on a non-player item!") unless @item.state["$player_body"]
+      player_name = item.name
       item.state["player"] ||= player_name
       player_item = engine.item_by_name("players")
       player_state = player_item.state[player_name]

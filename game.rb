@@ -54,16 +54,19 @@ class GoodShip
 
   def on_player_login(websocket, username)
     # Find or create a Demiurge agent as the player's body
-    player_agent_name = "#{username}_player_agent"
-    body = @engine.item_by_name(player_agent_name)
-    unless body
-      body = @engine.instantiate_new_item(player_agent_name, @template, "position" => @start_position)
+    body = @engine.item_by_name(username)
+    if body
+      # If the body already exists, it should be marked as a player body
+      raise("You can't create a body with reserved name #{username}!") unless body.state["$player_body"] == username
+    else
+      body = @engine.instantiate_new_item(username, @template, "position" => @start_position)
+      body.state["$player_body"] = username
       body.run_action("create") if body.get_action("create")
     end
     body.run_action("login") if body.get_action("login")
 
     # And create a Demiurge::Createjs::Player for the player's viewpoint
-    player = Demiurge::Createjs::Player.new websocket: websocket, name: username, demi_agent: body, engine_sync: @engine_sync, width: CANVAS_WIDTH, height: CANVAS_HEIGHT
+    player = Demiurge::Createjs::Player.new websocket: websocket, name: username, demi_item: body, engine_sync: @engine_sync, width: CANVAS_WIDTH, height: CANVAS_HEIGHT
 
     player.message "displayInit", { "width" => CANVAS_WIDTH, "height" => CANVAS_HEIGHT, "ms_per_tick" => TICK_MILLISECONDS }
     player.register  # Attach to EngineSync
@@ -71,8 +74,7 @@ class GoodShip
   end
 
   def on_player_logout(websocket, player)
-    player_agent_name = "#{player.name}_player_agent"
-    body = @engine.item_by_name(player_agent_name)
+    body = @engine.item_by_name(player.name)
     body.run_action("logout") if body && body.get_action("logout")
   end
 
@@ -80,7 +82,7 @@ class GoodShip
     STDERR.puts "Got player action: #{action_name.inspect} / #{args.inspect}"
     player = player_by_websocket(websocket) # LoginUnique defines player_by_websocket and player_by_name
     if action_name == "move"
-      player.demi_agent.queue_action "move", args[0]
+      player.demi_item.queue_action "move", args[0]
       return
     end
     raise "Unknown player action #{action_name.inspect} with args #{args.inspect}!"
