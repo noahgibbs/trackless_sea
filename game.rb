@@ -97,7 +97,8 @@ class GoodShip
       begin
         @engine.advance_one_tick
         counter += 1
-        if counter % TICKS_PER_SAVE
+        if counter % TICKS_PER_SAVE == 0
+          STDERR.puts "Writing periodic statefile, every #{TICKS_PER_SAVE.inspect} ticks..."
           ss = @engine.structured_state
           File.open("state/periodic_statefile.json", "w") do |f|
             f.print MultiJson.dump(ss, :pretty => true)
