@@ -1,6 +1,6 @@
-# The admin zone is basically annotations on things that aren't really
-# part of the world directly, but are important: player accounts, game
-# settings, various defaults and configuration.
+# The "adminzone" zone is basically annotations on things that aren't
+# really part of the world directly, but are important: player
+# accounts, game settings, various defaults and configuration.
 
 # Player information can be stored here. In general, if you want
 # information to stick around it needs a StateItem.  An "inert"
@@ -8,7 +8,7 @@
 # actions.
 inert "players"
 
-zone "admin" do
+zone "adminzone" do
   agent "player template" do
     # No position or location, so it's instantiable.
 
@@ -38,9 +38,9 @@ zone "admin" do
 
     define_action("logout") do
       player_state["active_position"] = item.position
-      # Logged out? Teleport the player's agent to the "admin" zone,
+      # Logged out? Teleport the player's agent to the "adminzone" zone,
       # in a sort of suspended animation.
-      move_to_instant("admin")
+      move_to_instant("adminzone")
     end
 
     define_action("move", "tags" => ["player_action", "agent_action"]) do |direction|
