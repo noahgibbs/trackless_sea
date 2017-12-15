@@ -35,9 +35,11 @@ class GoodShip
       File.exist?(f)
     end
     if last_statefile
-      STDERR.puts "Restoring state data from #{last_statefile.inspect}."
+      puts "Restoring state data from #{last_statefile.inspect}."
       state_data = MultiJson.load File.read(last_statefile)
       @engine.load_state_from_dump(state_data)
+    else
+      puts "No last statefile found, starting from World Files."
     end
 
     @engine_sync = Demiurge::Createjs::EngineSync.new(@engine)
@@ -79,7 +81,7 @@ class GoodShip
   end
 
   def on_player_action_message(websocket, action_name, *args)
-    STDERR.puts "Got player action: #{action_name.inspect} / #{args.inspect}"
+    puts "Got player action: #{action_name.inspect} / #{args.inspect}"
     player = player_by_websocket(websocket) # LoginUnique defines player_by_websocket and player_by_name
     if action_name == "move"
       player.demi_item.queue_action "move", args[0]
@@ -98,7 +100,7 @@ class GoodShip
         @engine.advance_one_tick
         counter += 1
         if counter % TICKS_PER_SAVE == 0
-          STDERR.puts "Writing periodic statefile, every #{TICKS_PER_SAVE.inspect} ticks..."
+          puts "Writing periodic statefile, every #{TICKS_PER_SAVE.inspect} ticks..."
           ss = @engine.structured_state
           File.open("state/periodic_statefile.json", "w") do |f|
             f.print MultiJson.dump(ss, :pretty => true)
