@@ -69,6 +69,7 @@ zone "adminzone" do
     end
 
     define_action("reboot server", "tags" => ["admin", "player_action"]) do
+      dump_state
       FileUtils.touch "tmp/restart.txt"
     end
 
