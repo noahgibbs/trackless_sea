@@ -16,6 +16,8 @@
   <script src="/scripts/dcjs_createjs_spritesheet.js"></script>
   <script src="/scripts/dcjs_createjs_spritestack.js"></script>
   <script src="/scripts/dcjs_createjs_text_anim.js"></script>
+
+  <script src="/trackless/ui_object.js"></script>
   <script src="/trackless/simulation.js"></script>
 
   <style media="screen" type="text/css">
@@ -127,7 +129,9 @@ function keyhandler(event) {
     dcjs_game.setTransport(new DCJS.WebsocketTransport(dcjs_game, ws));
     var display = new DCJS.CreatejsDisplay(dcjs_game, { canvas: "displayCanvas" });
     dcjs_game.setMessageHandler("display", display);
-    dcjs_game.setMessageHandler("sim", new Trackless(dcjs_game));
+    ui = new window.Trackless.UI();
+    dcjs_game.setMessageHandler("ui", ui);
+    dcjs_game.setMessageHandler("sim", new Trackless.Simulation(dcjs_game));
 
     dcjs_game.setup();
     dcjs_game.transport.onOpen(function() { dcjs_game.transport.considerAutoLogin(); });
@@ -171,6 +175,8 @@ function keyhandler(event) {
 </div>
 
 <canvas id="displayCanvas" width="640" height="480"></canvas>
+<ul class="action_list">
+</ul>
 
 <ul>
   <li><a href="/static/AUTHORS.txt">Credits for Graphics, Maps and Everything Creative</li>

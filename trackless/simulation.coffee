@@ -1,5 +1,6 @@
-# This is a file.
+unless window.Trackless?
+  class window.Trackless
 
-class window.Trackless extends DCJS.Simulation
+class window.Trackless.Simulation extends DCJS.Simulation
   notification: (data) ->
     console.log "Trackless received a notification!", data
