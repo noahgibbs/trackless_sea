@@ -62,6 +62,7 @@ zone "adminzone" do
 
       # Just a straight-up move-immediately-if-possible, no frills.
       move_to_instant(next_position)
+      player_state["active_position"] = item.position
     end
 
     define_action("statedump", "tags" => ["admin", "player_action"]) do

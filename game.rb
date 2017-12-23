@@ -24,7 +24,7 @@ class GoodShip
     Dir["**/world/extensions/**/*.rb"].each do |ruby_ext|
       require_relative ruby_ext
     end
-    @engine = Demiurge.engine_from_dsl_files *Dir["world/*.rb"]
+    @engine = Demiurge::DSL.engine_from_dsl_files *Dir["world/*.rb"]
 
     # If we restore state, we should do it before the EngineSync is
     # created.  Otherwise we have to replay a lot of "new item"
