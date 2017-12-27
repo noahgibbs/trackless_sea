@@ -13,7 +13,7 @@ PATH
 PATH
   remote: ../demiurge
   specs:
-    demiurge (0.1.0)
+    demiurge (0.2.0)
       multi_json
       tmx
 
