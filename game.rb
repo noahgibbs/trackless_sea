@@ -1,13 +1,10 @@
-# This file is required from config.ru
+require "demiurge"
 
-require "demiurge/dsl"
-require "demiurge/tmx"
-
+require "demiurge/createjs"
 require "demiurge/createjs/engine_sync"
 require "demiurge/createjs/json_accounts"
 require "demiurge/createjs/login_unique"
 
-# TODO: Set the HTML canvas from these? Or vice-versa?
 CANVAS_WIDTH = 640
 CANVAS_HEIGHT = 480
 TICK_MILLISECONDS = 300
@@ -21,7 +18,7 @@ class GoodShip
 
   def initialize
     # Ruby extensions in the World Files? Load them.
-    Dir["**/world/extensions/**/*.rb"].each do |ruby_ext|
+    Dir["**/world/extensions/**/*.rb"].sort.each do |ruby_ext|
       require_relative ruby_ext
     end
     @engine = Demiurge::DSL.engine_from_dsl_files *Dir["world/*.rb"]
@@ -29,8 +26,8 @@ class GoodShip
     # If we restore state, we should do it before the EngineSync is
     # created.  Otherwise we have to replay a lot of "new item"
     # notifications or otherwise register a bunch of state with the
-    # EngineSync. TODO: make a state-restore give a notification
-    # to allow the EngineSync to just roll with it.
+    # EngineSync.
+    # @todo Sort this list by modification date
     last_statefile = [ "state/shutdown_statefile.json", "state/periodic_statefile.json", "state/error_statefile.json" ].detect do |f|
       File.exist?(f)
     end
@@ -90,6 +87,7 @@ class GoodShip
     raise "Unknown player action #{action_name.inspect} with args #{args.inspect}!"
   end
 
+  # @todo Move this into DCJS
   def run_engine
     return if @engine_started
 
