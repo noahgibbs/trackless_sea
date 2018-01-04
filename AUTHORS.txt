@@ -70,6 +70,12 @@ Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/kettle_h
 Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/kettle_hat_male_spellcast.png
 Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/kettle_hat_male_thrust.png
 Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/kettle_hat_male_walkcycle.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/leather_hat_male_bow.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/leather_hat_male_hurt.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/leather_hat_male_slash.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/leather_hat_male_spellcast.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/leather_hat_male_thrust.png
+Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/leather_hat_male_walkcycle.png
 
 Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/monsters/skeleton_hurt.png
 Johannes Sjölund                   CC BY_SA 3.0, GPLv3         sprites/monsters/skeleton_slash.png
