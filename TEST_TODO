@@ -1,0 +1,8 @@
+## Trackless
+
+* Test w/ fresh new state from World Files vs reloaded state (e.g. for player creation, w/ fresh body and old body)
+* Test w/ fresh new accounts file versus existing accounts file
+
+* Test w/ engine state-load while a connection is active
+* JavaScript testing of front end w/ message replay
+* Cross-browser JS testing: https://philipwalton.com/articles/learning-how-to-set-up-automated-cross-browser-javascript-unit-testing/

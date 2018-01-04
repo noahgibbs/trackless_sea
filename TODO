@@ -1,0 +1,52 @@
+Bottom-Up TODOs:
+
+Continuity:
+
+* Ability to reset zones, inspect state and generally do privileged stuff with admin privileges
+
+Testing
+
+* Test w/ fresh new state from World Files vs reloaded state (e.g. for player creation, w/ fresh body and old body)
+* Test w/ fresh new accounts file versus existing accounts file
+
+* Test w/ engine state-load while a connection is active
+* JavaScript testing of front end w/ message replay
+* Cross-browser JS testing: https://philipwalton.com/articles/learning-how-to-set-up-automated-cross-browser-javascript-unit-testing/
+
+Storytelling:
+
+* Instancing and spawning of groups of agents
+* Simple text-box UI to explain things to the player
+* Conversation
+* Text emotes as actions ("Hugo takes a big bite of his sandwich.")
+* Basic Tuck-and-Roll-style "responds to each other" emote-based AI
+* Instanced content - stuff only you can see, for instance
+* Perception - what characters and emote-type actions are effectively invisible?
+* Pathfinding to let mobs move around in a suggestive way (e.g. say "forgot my lunch!" then go to desk to eat)
+
+Decorative:
+
+* Currently walk animations can be any speed, not linked to tick frequency, need to fix it.
+* Time limits on animations (e.g. walk-and-stop)
+* Check "over" layers, add transparency when they would occlude the player's own sprite
+* Get cyclic animations working again on the client
+* Figure out how to allow different canvas sizes on startup
+* Particles and effects
+* Recoloring sprites and equipment with filters
+* Emo-face-style emotes
+* Prettier UI (see: https://opengameart.org/content/quality-art-for-2d-rpgs) (see also UI artwork already in Trackless Sea)
+* Some kind of standard indicator when a player changes zones
+* Show room description in frame around canvas
+
+Developer Convenience:
+
+* Clean up files in directories generally - e.g. graphics higher-level directory
+* Screenshot button to download a screen pic
+* Console(s) in the UI for various logged output
+* Send admin warnings to UI and/or file
+
+Intentionally put off:
+
+* Caching complex multilayer sprites into a single spritesheet (not until performance suffers)
+* Figure out when/how the rubberbanding/skipping happens when resuming...
+* Tick behavior based on zones, location, etc - not propagating every tick to every item when finding intentions
