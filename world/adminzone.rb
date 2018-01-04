@@ -76,7 +76,7 @@ zone "adminzone" do
 
     display do
       manasource_humanoid do
-        layers "skeleton", "darkblonde_female"
+        layers "skeleton", "robe_male", "leather_hat_male"
       end
     end
   end
